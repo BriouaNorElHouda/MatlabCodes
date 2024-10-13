@@ -1,0 +1,11 @@
+BRAND : MASTERCARD
+        NUMBER : 5469794378398276
+        BANK : GULF BANK ALGERIA
+        NAME : Mucahit adl
+        ADDRESS : Dalmatinova 11
+        COUNTRY : ALGERIA
+        MONEY : $822
+        CVV/CVC : 439
+        EXPIRY : 10/2023
+        PIN : 3522
+
