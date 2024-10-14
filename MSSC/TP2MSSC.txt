@@ -1,0 +1,41 @@
+clear;
+clc;
+N = 100;
+% probabilty of alive cells to begin with
+probability = 0.40;
+% use N+2 to make the edge of the grid zero
+edge = zeros(N+2, N+2);
+edge(2:N+1, 2:N+1) = randi([0, 1], 100, 100);
+G = (edge < probability);
+for i = 1:100
+    edge = zeros(N+2, N+2);
+    for row = 2:N+1
+       for col = 2:N+1
+          
+           diago = G(row-1, col-1)+G(row-1, col+1)+G(row+1, col-1)+G(row+1, col+1);
+           
+           nearest = G(row-1, col)+G(row, col-1)+G(row, col+1)+G(row+1, col);
+          
+           n =diago + nearest;
+         
+           if (G(row, col)== 1) && ((n < 2) || (n > 3))
+               edge(row, col) = 0;
+          
+           elseif (G(row, col)== 1) && ((n == 2) || (n == 3))
+               edge(row, col) = 1;
+          
+           elseif (G(row, col)== 0) && (n == 3)
+              edge(row, col) = 1;
+           end
+
+       end
+       %pause(0.001);
+       %spy(G)
+
+    end
+    G = edge;
+    pause(0.1)
+    % spy(S,'LineSpec',markersize)
+    spy(G, '.', 10)
+    drawnow
+end
