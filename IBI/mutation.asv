@@ -1,0 +1,15 @@
+
+function mutated_vector = Mut_bin(vect, Pm)
+    mutated_vector = vect; % Copie du vecteur d'origine
+    
+    for i = 1:length(vect)
+        if rand < Pm
+            % Changer la position aléatoire de 0 à 1 ou de 1 à 0
+            if vect(i) == 0
+                mutated_vector(i) = 1;
+            else
+                mutated_vector(i) = 0;
+            end
+        end
+    end
+end
